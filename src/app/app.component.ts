@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
 
       // Convert the canvas pixels to
       let img = tf.browser.fromPixels(imageData, 1);
-      img = img.reshape([1, 28, 28, 1]);
+      img = img.reshape([1, 28, 28, 1] as any);
       img = tf.cast(img, 'float32');
 
       // Make and format the predications
