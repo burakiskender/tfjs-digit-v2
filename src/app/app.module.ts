@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { DrawableDirective } from './drawable.directive';
@@ -12,9 +11,7 @@ import { DrawableDirective } from './drawable.directive';
   ],
   imports: [
     BrowserModule,
-    ChartsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

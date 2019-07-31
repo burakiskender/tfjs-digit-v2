@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
     this.loadModel();
   }
 
-
   //// LOAD PRETRAINED KERAS MODEL ////
 
   async loadModel() {
@@ -57,11 +56,9 @@ export class AppComponent implements OnInit {
         console.log('Predicted number: ', this.predictedNumber)
       }
     });
-
   }
 
   clear() {
-    this.predictedNumber = "";
+    this.predictedNumber = '';
   }
-
 }

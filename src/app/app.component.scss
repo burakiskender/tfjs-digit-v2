@@ -1,18 +1,54 @@
-.wrapper {
-  display: inline-flex;
-  justify-content: flex-end;
-  border: 10px solid lighten(#ef6c00, 15%);
-  transition: border-color .2s ease-in;
-  &:hover {
+.container {
+  width: 480px;
+  margin-top: 30px;
+}
+
+.drawing-board {
+  h3 {
+    margin-bottom: 16px;
+  }
+
+  .wrapper {
+    display: inline-flex;
+    justify-content: flex-end;
+    border: 10px solid lighten(#ef6c00, 20%);
+    transition: border-color .2s ease-in;
+
+    &:hover {
       border: 10px solid #ef6c00;
-      transition: border-color .2s ease-in;
+    }
+  }
+
+  canvas {
+    cursor: crosshair;
+  }
+
+  button {
+    position: relative;
+    top: -8px;
+    margin-left: 12px;
   }
 }
 
-canvas {
-  cursor: crosshair;
+.prediction {
+  margin: 0 0 24px;
+
+  strong {
+    font-size: 3em;
+  }
 }
 
-.row {
-  margin: 5vh 0vw;
+footer {
+  p {
+    font-size: 1.4em;
+    color: rgb(175, 175, 175);
+  }
+}
+
+p, h3 {
+  color: rgb(75, 75, 75);
+}
+
+.highlight {
+  color: #ff6f00;
 }

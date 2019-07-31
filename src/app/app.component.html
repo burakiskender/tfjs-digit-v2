@@ -1,27 +1,17 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm">
-      <h3>Draw a number between 0 to 9</h3>
-      <div class="wrapper">
-        <canvas drawable (newImage)="predict($event)"></canvas><br>
-      </div>
-      &nbsp;
-      <button class="btn btn-lg btn-primary" onclick="window.location.reload()">Erase</button>
+  <div class="drawing-board">
+    <h3>Draw a number between <strong class="highlight">0</strong> to <strong class="highlight">9</strong></h3>
+    <div class="wrapper">
+      <canvas drawable (newImage)="predict($event)"></canvas><br>
     </div>
+    <button class="btn btn-lg btn-primary" onclick="window.location.reload()">Erase</button>
   </div>
-  <div>
-    <h1>Predicted Number: {{predictedNumber}}</h1>
+  <div class="prediction">
+    <h3>Predicted number: <strong class="highlight">{{ predictedNumber }}</strong></h3>
   </div>
-  <footer class="footer btn btn-lg btn-primary selected">
-    &copy;&nbsp;Copyright 2019 - Present Aaron Ma. All Rights Reserved.
+  <footer>
+    <p>
+      Made by <a class="highlight" href="http://aaronhma.com/" target="_blank">Aaron Ma</a>
+    </p>
   </footer>
-  <div class="jumbotron">
-    <h3>
-      Sample:
-    </h3>
-    <img src="/assets/images/2.png" srcset="/assets/images/2.png" height="300" width="300">
-    <img src="/assets/images/4.png" srcset="/assets/images/4.png" height="300" width="300">
-    <img src="/assets/images/5.png" srcset="/assets/images/5.png" height="300" width="300">
-    <img src="/assets/images/6.png" srcset="/assets/images/6.png" height="300" width="300">
-  </div>
 </div>
