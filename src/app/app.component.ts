@@ -48,12 +48,12 @@ export class AppComponent implements OnInit {
       for (let i = 0; i < this.predictions.length; i++) {
         if (this.predictions[i] === 1) {
           this.predictedNumber = i.toString();
-          console.log('Predicted number: ', this.predictedNumber)
+          console.log('Predicted number: ', this.predictedNumber);
         }
       }
       if (this.predictedNumber === '') {
         this.predictedNumber = ':(';
-        console.log('Predicted number: ', this.predictedNumber)
+        console.log('Predicted number: ', this.predictedNumber);
       }
     });
   }
