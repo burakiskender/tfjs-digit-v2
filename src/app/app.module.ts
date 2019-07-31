@@ -5,13 +5,8 @@ import { AppComponent } from './app.component';
 import { DrawableDirective } from './drawable.directive';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DrawableDirective
-  ],
-  imports: [
-    BrowserModule,
-  ],
+  declarations: [AppComponent, DrawableDirective],
+  imports: [BrowserModule],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

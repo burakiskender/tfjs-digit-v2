@@ -11,16 +11,16 @@ import {
   selector: '[appDrawable]'
 })
 export class DrawableDirective implements OnInit {
-  pos = { x: 0, y: 0 };
-  ctx: CanvasRenderingContext2D;
-  canvas: HTMLCanvasElement;
+  public pos = { x: 0, y: 0 };
+  public ctx: CanvasRenderingContext2D;
+  public canvas: HTMLCanvasElement;
 
-  @Output() newImage = new EventEmitter();
+  @Output() newImage = new EventEmitter<ImageData | null>();
 
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
-    this.canvas = this.el.nativeElement as HTMLCanvasElement;
+    this.canvas = this.el.nativeElement;
     this.ctx = this.canvas.getContext('2d');
   }
 
@@ -41,12 +41,11 @@ export class DrawableDirective implements OnInit {
 
   @HostListener('mousemove', ['$event'])
   onDown(e) {
-
     if (e.buttons !== 1) {
       return;
     }
 
-    this.ctx.beginPath(); // begin
+    this.ctx.beginPath();
 
     this.ctx.lineWidth = 10;
     this.ctx.lineCap = 'round';
@@ -60,22 +59,24 @@ export class DrawableDirective implements OnInit {
   }
 
   @HostListener('resize', ['$event'])
-  onResize(e) {
+  onResize() {
     this.ctx.canvas.width = window.innerWidth;
     this.ctx.canvas.height = window.innerHeight;
   }
 
-  setPosition(e) {
+  public setPosition(e) {
     this.pos.x = e.offsetX;
     this.pos.y = e.offsetY;
   }
 
-  clear() {
+  public clear() {
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    this.ctx.restore();
+    this.newImage.emit(null);
   }
 
-  getImgData(): ImageData {
-    const scaled = this.ctx.drawImage(this.canvas, 0, 0, 28, 28);
+  public getImgData(): ImageData {
+    this.ctx.drawImage(this.canvas, 0, 0, 28, 28);
     return this.ctx.getImageData(0, 0, 28, 28);
   }
 }
